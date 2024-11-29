@@ -1,0 +1,193 @@
+@primary-color: #4CAF50;
+@secondary-color: #f4f4f4;
+@text-color: #333;
+@border-color: #ddd;
+@button-padding: 10px;
+@border-radius: 5px;
+
+@overlay-color: rgba(0, 0, 0, 0.7);
+@modal-bg-color: #fff;
+@modal-width: 600px; // Ширина модального окна
+@modal-padding: 20px; // Отступы внутри модального окна
+@border-modal-radius: 10px; // Скругление углов
+
+@card-bg-color: #fff;
+@card-border-radius: 8px;
+@card-padding: 20px;
+@card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+// миксин
+.display(){
+  display: flex;
+}
+
+.button(@margin-left) {
+  button {
+    background-color: @primary-color;
+    color: white;
+    border: none;
+    padding: @button-padding;
+    border-radius: @border-radius;
+    cursor: pointer;
+    margin-left: @margin-left;
+
+    &:hover {
+      background-color: darken(@primary-color, 10%);
+    }
+  }
+}
+
+// Основные стили
+body {
+  font-family: Arial, sans-serif;
+  background-color: @secondary-color;
+  margin: 0;
+
+  // Заголовок на всю ширину
+  h1 {
+    color: @text-color; /* Цвет текста заголовка */
+    margin-bottom: 0; /* Отступ снизу */
+    margin-top: 0;
+    padding: 20px 40px; /* Отступ слева */
+    background-color: rgba(255, 230, 170, 0.99);
+    border-radius: 5px;
+
+    .button(0px);
+  }
+
+  .container {
+    .display();
+    flex-direction: column; // Каждый пользователь на своей строке
+    max-width: 100%;
+    padding: 20px;
+
+    // Вложенность для списка пользователей
+    .user-items {
+      .display(); // Выровнять элементы в строку
+      align-items: center; // Выровнять по центру
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: @secondary-color;
+      border: 1px solid @border-color;
+      border-radius: @border-radius;
+
+      .photo {
+
+        .custom-thumbnail {
+          padding: 10px; /* Уменьшение отступов внутри рамки */
+          border-width: 1px; /* Уменьшение ширины рамки */
+        }
+      }
+      // Стили для заголовков и значений
+      p {
+        .display();
+        font-weight: bold;
+        margin: 0 10px;
+        flex: 20%; // Все элементы занимают одинаковую ширину (20% от контейнера)
+        flex-direction: column; // Элементы внутри каждого <p> располагаются вертикально
+
+        span {
+          margin-top: 10px;
+          font-weight: normal;
+          cursor: pointer;
+        }
+
+        input {
+          margin-top: 10px;
+          padding: 10px;
+        }
+      }
+
+      select {
+        margin-top: 10px;
+        padding: @button-padding;
+        border: 1px solid @border-color;
+        border-radius: @border-radius;
+        width: 100%;
+      }
+
+      .actions-container {
+        margin-top: 10px;
+
+        p {
+          margin-left: 10px;
+          font-weight: bold;
+        }
+
+        .actions {
+          .display();
+          justify-content: flex-start; // Выровнять кнопки по левому краю
+          margin-top: 5px;
+          .button(10px);
+        }
+      }
+    }
+  }
+}
+.modal-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.modal-overlay {
+  position: fixed; // относительно окна
+  top: 0; // Сверху
+  left: 0; // Слева
+  width: 100%; // На всю ширину
+  height: 100%; // На всю высоту
+  background-color: @overlay-color; // Полупрозрачный фон
+  display: flex; // Используем flexbox для центрирования
+  justify-content: center; // Центрируем по горизонтали
+  align-items: center; // Центрируем по вертикали
+
+  // Стиль для модального контента
+  .modal-content {
+    background-color: @modal-bg-color; // Цвет фона
+    width: @modal-width; // Ширина модального окна
+    padding: @modal-padding; // Отступы
+    border-radius: @border-modal-radius; // Скругление углов
+
+    .b {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; // Для выравнивания кнопки закрытия
+
+      // Кнопка закрытия
+      .close-modal {
+        background: transparent; // Прозрачный фон
+        border: none; // Без границ
+        cursor: pointer; // Курсор указателя при наведении
+        font-size: 16px; // Размер шрифта
+        color: #333; // Цвет текста
+
+        &:hover {
+          color: #ff0000; // Цвет при наведении
+        }
+      }
+    }
+
+    .user-news-item {
+      background-color: @card-bg-color; // Белый фон карточки
+      border-radius: @card-border-radius; // Скругление углов
+      padding: @card-padding; // Отступы внутри карточки
+      margin-bottom: 20px; // Отступ снизу между карточками
+      box-shadow: @card-shadow; // Легкая тень
+
+      &:hover {
+        box-shadow:  0 8px 16px rgba(0, 0, 0, 0.2); // Усиление тени при наведении
+      }
+    }
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 750px) {
+  .user-items {
+    flex-direction: column; // Вертикальное расположение для мобильных устройств
+    p {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,105 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "date_of_birth": "1990-05-12",
+    "role": "admin",
+    "status": "active",
+    "friends": [
+      2,
+      3,
+      7
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "date_of_birth": "2024-08-24",
+    "role": "user",
+    "status": "active",
+    "friends": [
+      1,
+      3,
+      7
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Dmitry",
+    "email": "dmitry@example.com",
+    "date_of_birth": "2004-08-24",
+    "role": "admin",
+    "status": "active",
+    "friends": [
+      1,
+      2,
+      7
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "date_of_birth": "1995-10-05",
+    "role": "user",
+    "status": "inactive",
+    "friends": [
+      1,
+      5,
+      7
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Bob Williams",
+    "email": "bob@example.com",
+    "date_of_birth": "1988-02-14",
+    "role": "user",
+    "status": "active",
+    "friends": [
+      4,
+      7
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Eva Green",
+    "email": "eva@example.com",
+    "date_of_birth": "1993-11-20",
+    "role": "user",
+    "status": "active",
+    "friends": [
+      2,
+      3,
+      7
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Elon Musk",
+    "email": "musk@example.com",
+    "date_of_birth": "1995-11-20",
+    "role": "admin",
+    "status": "active",
+    "friends": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 8,
+    "name": "new",
+    "email": "newUser@example.com",
+    "date_of_birth": "2024-10-24",
+    "role": "admin",
+    "status": "active",
+    "friends": [
+      3
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Социальная сеть
+        link(rel="stylesheet", href="/styles/users.css")
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+        script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js")
+    body
+        h1 Друзья пользователя #{userName}
+            form(action="/users" method="GET")
+                button(type="submit") Вернуться на главную
+        div.container
+            each user in users
+                // Используем data-id для идентификации пользователя
+                div.user-items(data-id=user.id)
+                    div.photo
+                        img(src="/resources/default.png", class="rounded-circle custom-thumbnail", width="80", height="80")
+                    p Имя:
+                        span.name #{user.name}
+                        input(type="text", class="edit-name", value=user.name, style="display:none;")
+                    p Email:
+                        span.email #{user.email}
+                        input(type="email", class="edit-email", value=user.email, style="display:none;")
+                    p Дата рождения:
+                        span.dob #{user.date_of_birth}
+                        input(type="date", class="edit-dob", value=user.date_of_birth, style="display:none;")
+
+                    p Роль:
+                        select(name="role")
+                            option(value="admin", selected=(user.role === "admin")) Администратор
+                            option(value="user", selected=(user.role === "user")) Пользователь
+                    p Статус:
+                        select(name="status")
+                            option(value="unconfirmed", selected=(user.status === "unconfirmed")) Не подтверждённый
+                            option(value="active", selected=(user.status === "active")) Активный
+                            option(value="blocked", selected=(user.status === "blocked")) Заблокированный
+                    div.actions-container
+                        p Действия:
+                        div.actions
+                            form(action=`/users/friends/${user.id}` method="GET")
+                                button(type="submit") Список друзей
+                            form(action=`/users/news/${user.id}` method="GET")
+                                button(type="submit") Новости друзей
+        script(src="/scripts/changeRoleStatus.js")
+        script(src="/scripts/changeUserData.js")

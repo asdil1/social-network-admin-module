@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Социальная сеть
+        link(rel="stylesheet", href="/styles/users.css")
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+        script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js")
+    body
+        h1 Новости друзей пользователя #{userName}
+            form(action="/users" method="GET")
+                button(type="submit") Вернуться на главную
+
+        div.container
+            each user in users
+                div.user-items(data-id=user.id)
+                    div.photo
+                        img(src="/resources/default.png", class="rounded-circle custom-thumbnail", width="80", height="80")
+                    p Имя:
+                        span.name #{user.name}
+                    p Email:
+                        span.email #{user.email}
+                    p Дата рождения:
+                        span.dob #{user.date_of_birth}
+                    div.actions-container
+                        p Действия:
+                        div.actions
+                            button.view-news(data-id=user.id, type="button") Новости пользователя
+        // модальное окно для новостей
+        dialog.modal-overlay(style="display:none;")
+            .modal-content
+                .b
+                    button.close-modal(type="button") Закрыть
+                h2 Новости пользователя
+                div.news-container
+        script(src="/scripts/userNews.js")

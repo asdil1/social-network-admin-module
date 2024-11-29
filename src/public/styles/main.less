@@ -1,0 +1,35 @@
+@color-button: #4CAF50; // Основной цвет
+@color-button-hover: #29682c;
+@color-text: #333;
+@color-text-button: #eeeeee;
+@background-color: #f4f4f4;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: @background-color; /* Цвет фона страницы */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Высота страницы */
+}
+
+h1 {
+  color: @color-text;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px; /* Отступы для кнопки */
+  font-size: 16px; /* Размер шрифта */
+  background-color: @color-button; /* Цвет фона кнопки */
+  color: @color-text-button; /* Цвет текста кнопки */
+  border: none; /* Без границы */
+  border-radius: 5px; /* Закругленные углы */
+  cursor: pointer; /* Указатель при наведении */
+}
+
+button:hover {
+  background-color: @color-button-hover;
+}
